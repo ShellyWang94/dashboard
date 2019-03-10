@@ -9,8 +9,7 @@ export default class Tab extends Component{
           curTab: "all",
           inputValue: "",
           arrangeWay: "list"
-        }
-        console.log(props)
+        };
     }
     chooseAll = (key) => () => {
       if(key === this.state.curTab){

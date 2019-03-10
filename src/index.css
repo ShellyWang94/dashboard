@@ -123,6 +123,9 @@ nav{
 .nav-links-item:hover a{
   color: #00b4cf;
 }
+.nav-links-active{
+  background-color: #435466;
+}
 .nav-links span{
   font-size: 20px;
   display: inline-block;
@@ -136,6 +139,7 @@ nav{
   text-decoration: none;
   font-weight: 300;
   vertical-align: top;
+  width: 216px;
 }
 .content-wrapper{
   padding-top: 70px;

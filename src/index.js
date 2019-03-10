@@ -4,10 +4,13 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {createStore, applyMiddleware, compose} from 'redux';
+import {createBrowserHistory} from 'history';
+import {routerMiddleware} from 'connected-react-router';
 import RootReducer from './rootReducer';
 import thunk from 'redux-thunk';
-const middlewares = [thunk];
-const store = createStore(RootReducer,
+const middlewares = [routerMiddleware(history),thunk];
+export const history = createBrowserHistory();
+const store = createStore(RootReducer(history),
   compose(applyMiddleware(...middlewares)));
 ReactDOM.render(<App store={store}/>, document.getElementById('root'));
 

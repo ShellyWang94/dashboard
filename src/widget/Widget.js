@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import { NavConfig } from './config';
 import {connect} from 'react-redux';
 function mapStateToProps(state){
   return {
+    router: state.router,
     historyArr: state.agent.historyArr
   };
 }
@@ -33,6 +34,7 @@ class Widget extends Component{
     return (clientWidth - this.fixedContentWidth) / 2;
   }
   render(){
+    const curPath = window.location.pathname;
     return <div className="cru-widget">
     <header className="hf-base">
       <div className="clearfix cru-header-wrapper">
@@ -45,7 +47,7 @@ class Widget extends Component{
     <nav style={{left: this.state.navLeft}}>
       <div className="nav-links">
         {NavConfig.map((navItem, index) =>
-          <div className="nav-links-item" key={navItem.text + index}>
+          <div className={"nav-links-item" + (navItem.link === curPath ? " nav-links-active" : "")} key={navItem.text + index}>
             <span className={navItem.class}></span>
             <Link to={navItem.link}>{navItem.text}</Link>
           </div>
@@ -69,4 +71,4 @@ class Widget extends Component{
   </div>
   }
 }
-export default connect(mapStateToProps)(Widget);
+export default withRouter(connect(mapStateToProps)(Widget));

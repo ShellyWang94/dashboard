@@ -1,5 +1,7 @@
 import {combineReducers} from 'redux';
 import AgentReducer from './agent/reducer';
-export default combineReducers({
+import {connectRouter} from 'connected-react-router';
+export default (history) => combineReducers({
+  router: connectRouter(history),
   agent: AgentReducer
 })

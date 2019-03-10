@@ -1,5 +1,5 @@
 export const NavConfig = [{
-  link: "/",
+  link: "/dashboard",
   class: "icon-dashboard",
   text: "DASHBOARD"
 },{
@@ -7,11 +7,11 @@ export const NavConfig = [{
   class: "icon-sitemap",
   text: "AGENT"
 },{
-  link: "/",
+  link: "/cruse",
   class: "icon-boat",
   text: "MY CRUSE"
 },{
-  link: "/",
+  link: "/help",
   class: "icon-life-bouy",
   text: "HELP"
 }];

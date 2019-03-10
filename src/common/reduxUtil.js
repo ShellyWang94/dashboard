@@ -35,7 +35,8 @@ const ReduxUtil = {
               withCredentials: true,
           })
           .then((response) => {
-            dispatch(options.actions[actionName](response.data));     
+            if(actionName){ dispatch(options.actions[actionName](response.data)); }
+            
             if(fn){
               fn(response);
             }

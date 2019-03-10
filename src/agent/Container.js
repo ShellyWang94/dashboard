@@ -44,14 +44,36 @@ class CruiseAgent extends Component{
     this.props.searchSource();
   }
   addSource = (addObj) => {
-    this.props.addSource(addObj);
+    this.props.addSource({
+      id: addObj.data.id,
+      text: addObj.text
+    });
     // send add source request
+    this.props.sendRequest({
+      method: "put",
+      server: SERVER,
+      path: `/agents/${addObj.data.id}`,
+      params: addObj.data,
+      // actionName: "getAllComputers",
+      // actions: XhrAct    
+    });
   }
   cancelSource = () => {
     this.props.cancelSource();
   }
   deleteSource = (deleteObj) => {
-    this.props.deleteSource(deleteObj);
+    this.props.deleteSource({
+      id: deleteObj.data.id,
+      index: deleteObj.index
+    });
+    this.props.sendRequest({
+      method: "put",
+      server: SERVER,
+      path: `/agents/${deleteObj.data.id}`,
+      params: deleteObj.data,
+      // actionName: "getAllComputers",
+      // actions: XhrAct    
+    })
   }
   addHistory = (historyCom) => {
     this.props.addHistory(historyCom);

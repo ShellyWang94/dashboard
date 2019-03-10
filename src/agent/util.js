@@ -6,7 +6,7 @@ export const Util = {
     data.forEach((item, index) => {
       temp.push({...item});
       if(item.id === id){
-        temp[index].resources = addArr.concat(item.resources);
+        temp[index].resources = item.resources.concat(addArr);
       }
     });
     return temp;

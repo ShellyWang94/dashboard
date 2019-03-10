@@ -33,14 +33,16 @@ export default class ComputerItem extends Component{
       });
       this.stopPropaget(e);
     }
-    addSource = (id) => (e) => {
+    addSource = (itemObj) => (e) => {
       if(this.state.inputValue === ""){
         console.log('empty value is not allowed');
         return;
       }
       this.stopPropaget(e);
+      let temp = JSON.parse(JSON.stringify(itemObj));
+      temp.resources = temp.resources.concat(this.state.inputValue.split(","));
       this.props.fns.addSource({
-        id: id,
+        data: temp,
         text: this.state.inputValue
       });
       this.setState({
@@ -48,9 +50,11 @@ export default class ComputerItem extends Component{
         inputValue: ""
       });
     }
-    deleteSource = (id, index) => () => {
+    deleteSource = (itemObj, index) => () => {
+      let temp = JSON.parse(JSON.stringify(itemObj));
+      temp.resources.splice(index, 1);
       this.props.fns.deleteSource({
-        id: id,
+        data: temp,
         index: index
       });
     }
@@ -119,7 +123,7 @@ export default class ComputerItem extends Component{
                   <div>
                     <button 
                     className={Style.addBtn}
-                    onClick={this.addSource(this.props.data.id)}
+                    onClick={this.addSource(this.props.data)}
                     >Add Resource</button>
                     <button 
                     className={Style.cancelBtn}
@@ -137,7 +141,7 @@ export default class ComputerItem extends Component{
                 <span 
                 className={`icon-trash ${Style.trashIcon}`} 
                 style={{lineHeight: "27px"}}
-                onClick={this.deleteSource(this.props.data.id, index)}
+                onClick={this.deleteSource(this.props.data, index)}
                 ></span>
               </strong>
             )}

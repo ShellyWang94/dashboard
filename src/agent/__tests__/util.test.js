@@ -10,7 +10,7 @@ describe('test reducer util addSource', () => {
       id: 2,
       resources: ["test1", "test2"]
     }];
-    const expectedResult = ["a", "b", "c", "test1", "test2"]
+    const expectedResult = ["test1", "test2", "a", "b", "c"]
     const result = Util.addSource(1, addString, originData);
     expect(result[0].resources).toEqual(expectedResult);
   });

@@ -1,0 +1,86 @@
+  :local(.cardbox){
+    box-sizing: border-box;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    height: 150px;
+  }
+  :local(.cardbase){
+    display: inline-block;
+    box-sizing: border-box;
+    width: 270px;
+    height: 115px;
+    color: #fff;
+    position: relative;
+    vertical-align: top;
+    margin-right: 31px;
+  }
+  :local(.building){
+    composes: cardbase;
+    background-color: #ffb900;
+  }
+  :local(.bgIconBase){
+    font-size: 144px;
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    opacity: 0.2;
+  }
+  :local(.bgBuilding){
+    composes: bgIconBase;
+    left: 90px;
+    animation: rotate 2s linear 0 infinite;
+    transform: translate3d(0, 0, 0);
+  }
+  :local(.building){
+    composes: cardbase;
+    background-color: #ffb900;
+  }
+  :local(.idle){
+    composes: cardbase;
+    background-color: #7fbc39;
+  }
+  :local(.bgIdle){
+    composes: bgIconBase;
+    left: 86px;
+  }
+  :local(.APVIndex){
+    composes: cardbase;
+    background-color: #fff;
+    margin-right: 0;
+    color: #000;
+  }
+  :local(.cardboxTitle){
+    padding-top: 15px;
+    padding-left: 10px;
+    font-size: 18px;
+  }
+  :local(.cardboxNum){
+    font-size: 48px;
+    font-weight: normal;
+    padding-top: 20px;
+    padding-right: 20px;
+    text-align: right;
+  }
+  :local(.APVItem){
+    display: inline-block;
+    width: 33.33%;
+    text-align: center;
+  }
+  :local(.APVTitle){
+    padding-top: 20px;
+    padding-bottom: 30px;
+    font-size: 12px;
+  }
+  :local(.APVNum){
+    padding-bottom: 25px;
+    font-size: 20px;
+  }
+  @keyframes rotate{
+    0%{
+      transform: rotate(0);
+    }
+    100%{
+      transform: rotate(360deg);
+    }
+  }
+    

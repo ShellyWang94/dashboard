@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-
+import AgentReducer from './agent/reducer';
 export default combineReducers({
-  a: () => 123
+  agent: AgentReducer
 })

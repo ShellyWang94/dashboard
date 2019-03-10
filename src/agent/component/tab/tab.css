@@ -1,0 +1,63 @@
+
+    :local(.tabbox){
+    background-color: #fff;
+    height: 50px;
+  }
+  :local(.tabItem){
+    display: inline-block;
+    box-sizing: border-box;
+    width: 80px;
+    line-height: 50px;
+    border-right: solid 1px #efefef;
+    text-align: center;
+    cursor: pointer;
+  }
+  :local(.tabItemLink){
+    width: 100%;
+    height: 100%;
+    line-height: 47px;
+    box-sizing: border-box;
+  }
+  :local(.tabItemActive){
+    border-bottom: solid 3px #00b4cf;
+    color: #00b4cf;
+  }
+  :local(.tabGroups){
+    display: inline-block;
+  }
+  :local(.tabSearch){
+    display: inline-block;
+    padding-left: 30px;
+    position: relative;
+  }
+  :local(.tabInput){
+    box-sizing: border-box;
+    width: 170px;
+    height: 30px;
+    padding-left: 30px;
+    border: solid 1px #e1e4e6;
+    background-color: #f3f3f3;
+    outline: none;
+    cursor: pointer;
+  }
+  :local(.tabSearchIcon){
+    color: #999999;
+    position: absolute;
+    font-size: 20px;
+    left: 40px;
+    top: 5px;
+    cursor: pointer;
+  }
+  :local(.arrangeWay){
+    float: right;
+    padding-right: 24px;
+    font-size: 20px;
+    line-height: 50px;
+    cursor: pointer;
+  }
+  :local(.cardWay){
+    padding-right: 20px;
+  }
+  
+  
+  

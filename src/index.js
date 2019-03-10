@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import RootReducer from './rootReducer';
-
-const store = createStore(RootReducer);
+import thunk from 'redux-thunk';
+const middlewares = [thunk];
+const store = createStore(RootReducer,
+  compose(applyMiddleware(...middlewares)));
 ReactDOM.render(<App store={store}/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

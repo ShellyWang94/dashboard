@@ -1,7 +1,13 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-
-export default class Widget extends Component{
+import { NavConfig } from './config';
+import {connect} from 'react-redux';
+function mapStateToProps(state){
+  return {
+    historyArr: state.agent.historyArr
+  };
+}
+class Widget extends Component{
   constructor(props){
     super(props);
     this.fixedContentWidth = 1172;
@@ -38,22 +44,20 @@ export default class Widget extends Component{
     </header>
     <nav style={{left: this.state.navLeft}}>
       <div className="nav-links">
-        <div className="nav-links-item">
-          <span className="icon-dashboard"></span>
-          <Link to="/">DASHBOARD</Link>
-        </div>
-        <div className="nav-links-item">
-          <span className="icon-sitemap"></span>
-          <Link to="/">AGENT</Link>
-        </div>
-        <div className="nav-links-item">
-          <span className="icon-boat"></span>
-          <Link to="/">MY CRUSE</Link>
-        </div>
-        <div className="nav-links-item">
-          <span className="icon-life-bouy"></span>
-          <Link to="/">HELP</Link>
-        </div>
+        {NavConfig.map((navItem, index) =>
+          <div className="nav-links-item" key={navItem.text + index}>
+            <span className={navItem.class}></span>
+            <Link to={navItem.link}>{navItem.text}</Link>
+          </div>
+          )}
+      </div>
+      <div className="history-links">
+        <p>History</p>
+        <ul>
+          {this.props.historyArr.map((his, index) => 
+            <li key={his + index}>{his}</li>
+          )}
+        </ul>
       </div>
     </nav>
     <div className="cru-widget-box">
@@ -65,3 +69,4 @@ export default class Widget extends Component{
   </div>
   }
 }
+export default connect(mapStateToProps)(Widget);

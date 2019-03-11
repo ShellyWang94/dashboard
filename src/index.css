@@ -161,6 +161,8 @@ nav{
   width: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
+  white-space: nowrap;
+  padding-top: 8px;
 }
 .history-links li::before{
   content: "";

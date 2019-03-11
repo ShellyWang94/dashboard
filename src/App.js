@@ -14,7 +14,6 @@ const App = ({store}) => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <Router>
-        <div>
         <Widget>
           <div className="cru-widget-box">
             <Route path="/" exact component={CruiseAgent}/>
@@ -23,11 +22,6 @@ const App = ({store}) => (
             <Route path="/help" exact component={() => <h1>help</h1>}/>
           </div>
         </Widget>
-        <Route path="/" exact component={CruiseAgent}/>
-            <Route path="/dashboard" exact component={() => <h1>dashboard</h1>}/>
-            <Route path="/cruse" exact component={() => <h1>cruise</h1>}/>
-            <Route path="/help" exact component={() => <h1>help</h1>}/>
-            </div>
       </Router>
     </ConnectedRouter>
   </Provider>

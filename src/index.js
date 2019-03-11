@@ -1,3 +1,5 @@
+import 'react-app-polyfill/ie9';
+import 'react-app-polyfill/ie11';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -8,6 +10,7 @@ import {createBrowserHistory} from 'history';
 import {routerMiddleware} from 'connected-react-router';
 import RootReducer from './rootReducer';
 import thunk from 'redux-thunk';
+require("@babel/polyfill");
 const middlewares = [routerMiddleware(history),thunk];
 export const history = createBrowserHistory();
 const store = createStore(RootReducer(history),
